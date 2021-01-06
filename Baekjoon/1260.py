@@ -40,6 +40,5 @@ def bfs(graph, root_node):
 
     # return visit
 
-
 dfs(graph, root)
 bfs(graph, root)
