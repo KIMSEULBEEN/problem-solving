@@ -23,7 +23,7 @@ def bfs_maze(root_node, end_node, matrix):
                 queue.append([h - 1, w])
             if h < height - 1 and matrix[h + 1][w] == '1':
                 queue.append([h + 1, w])
-
+                
 
     answer = 1
     for n in range(1, len(visit)):
