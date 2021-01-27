@@ -35,7 +35,7 @@ for num, numCalled in enumerate(listNumCalled):
     if False not in [matrixBINGO[n][-n-1] for n in range(5)]: bingoCnt += 1
 
     if bingoCnt >= 3: break
-
+        
 # print()
 # print([matrixBINGO[n][n] for n in range(5)])
 # print([matrixBINGO[n][-n-1] for n in range(5)])
