@@ -13,11 +13,7 @@ for idx, tower in enumerate(towers):
             tower_stack = [[idx, tower]]
 
         else:
-            tower_tmp = tower_stack[-1][1]
-            while tower_tmp < tower:
-                tower_stack.pop()
-                tower_tmp = tower_stack[-1][1]
-
+            while tower_stack[-1][1] < tower: tower_stack.pop()
             answers.append(tower_stack[-1][0] + 1)
             tower_stack.append([idx, tower])
 
