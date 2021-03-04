@@ -9,7 +9,7 @@ for _ in range(num_loops):
     graph[node1].append(node2)
     graph[node2].append(node1)
 for n in range(num_nodes + 1): graph[n].sort()
-print(graph)
+print(graph) # [[], [2, 3, 4], [1, 4], [1, 4], [1, 2, 3]]
 
 def dfs(graph, root_node):
     visit, stack = [], [root_node]
@@ -54,11 +54,9 @@ bfs(graph, root)
 1 4
 2 4
 3 4
-
 테스트 케이스 1(정답)
 1 2 4 3
 1 2 3 4
-
 테스트 케이스 2
 5 5 3
 5 4
@@ -66,7 +64,6 @@ bfs(graph, root)
 1 2
 3 4
 3 1
-
 테스트 케이스 2(정답)
 3 1 2 5 4 
 3 1 4 2 5
