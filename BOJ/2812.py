@@ -1,5 +1,5 @@
 from collections import deque
-
+# Test
 # 0. 입력 받기
 len_numbers, len_numbers2 = list(map(int, input().split(' ')))
 # 두 수의 길이로 입력을 받기 때문에 len_number2 값을 재조정
