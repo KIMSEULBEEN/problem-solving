@@ -17,7 +17,7 @@ plus_numbers = sorted(plus_numbers)
 minus_numbers = sorted(minus_numbers, reverse=True)
 
 """
-양의 정수 리스트의 가장 작은 두 수의 합과, 음의 정수 리스트의 가장 작은 두 수의 합 중 작은 값을 초기 answer로 취함
+양의 정수 리스트의 가장 작은 두 수의 합과, 음의 정수 리스트의 가장 작은 두 수의 합 중 작은 값을 초기 answer로 취한다
 """
 sum_plus_2, sum_minus_2 = sum(plus_numbers[:2]), sum(minus_numbers[:2])
 
