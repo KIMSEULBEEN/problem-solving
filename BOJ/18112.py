@@ -20,6 +20,15 @@ answer: 2 (num에서 num_final로 가기 위한 최소 연산)
 101
 111
 1
+
+
+11011
+10111
+1
+
+110111
+111001
+2
 """
 
 # 0. 입력 받기
@@ -82,6 +91,9 @@ for idx in range(1, len(num_bi)):
 
 # 합 & 차연산
 answer_add_2 = abs(num - num_final)
+if answer_add_1 == 2 and answer_add_2 in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]:
+    # print(answer_add_1, answer_add_2)
+    answer_add_2 = 1
 
 # 더 적은 연산량 적용
 answer += min(answer_add_1, answer_add_2)
