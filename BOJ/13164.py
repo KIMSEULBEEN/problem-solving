@@ -9,14 +9,16 @@ N, K = list(map(int, input().split(' ')))
 students = list(map(int, input().split(' ')))
 
 distances_dict = dict()
+distances = []
 for idx in range(N - 1):
-    distances_dict[idx] = students[idx + 1] - students[idx]
+    distances.append(students[idx + 1] - students[idx])
 
 if K == 1:
     answer = students[-1] - students[0]
 
 else:
-    distances = sorted(distances_dict.items(), key=lambda x: x[1], reverse=True)[:K - 1]
+    answer = sum(sorted(distances)[:N - K])
+
     distances = sorted(distances, key=lambda x:x[0]) # [(0, 2), (3, 4)]
     print(distances)
 
