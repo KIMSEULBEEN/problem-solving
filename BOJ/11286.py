@@ -41,7 +41,7 @@ class AbsHeap:
 
                 # 3. heap_minus 배열 크기만 0보다 클 경우
                 elif len(self.heap_minus) > 0:
-                    print(hq.heappop(self.heap_minus))
+                    print(-hq.heappop(self.heap_minus))
 
                 # 4. heap_plus와 heap_minus 배열 크기가 둘 다 0일 경우
                 else:
