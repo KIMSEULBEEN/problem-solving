@@ -74,10 +74,10 @@ if sum_square == 0:
 
 
         sum_tmp = 0
-        for idx in range(1, 3):
-            sum_tmp += sum(magic_square[idx]) - sum_gijun
+        for idx in range(1, 3): # 1, 2
+            sum_tmp += sum(magic_square[idx]) - sum(magic_square[0])
         num_gijun = (sum_tmp + sum(magic_square[0])) // 2
-        # print(num_gijun)
+        print(num_gijun)
 
         magic_square[0][0] = num_gijun
         for idx in range(1, 3):
