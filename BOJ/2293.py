@@ -7,41 +7,48 @@ k: 가치의 합
 from collections import deque
 from copy import deepcopy
 
+"""
+dp size: len(coins) * number 
+행 크기: len(coins)
+열 크기: number
+dp[r][c]: coins[0] ~ coins[r] 코인을 활용하여 만들 수 있는 조합의 수
+        = dp[r][c - coins[r]] + dp[r - 1][c - coins[r]] .... + dp[0][c - coins[r]]
+"""
 class Coin:
-    def __init__(self):
+    def __init__(self, number, coins):
+        self.number = number
+        self.coins = coins
+        # self.dp = [[0] * (number + 1) for _ in range(len(self.coins))]
+        self.dp = [0] * (number + 1)
         self.answer = 0
 
-    def get_answer(self, number, coins):
-        """
-        동전 소액권을 하나씩 제거해가면서 number를 줄여나간다.
-        남은 number가 0일 경우 answer + 1
-        :param number: 잔여 숫자
-        :param coins: 잔여 코인들
-        :return: answer
-        """
 
-        if len(coins) > 0:
-            coin_value = coins.popleft()
+    def get_answer(self):
+        self.dp[0] = 1
 
-            num_iterates = number // coin_value
-            for idx in range(0, num_iterates + 1):
-                number_cpr = coin_value * idx
-
-                number_left = number - number_cpr
-                # print(number_left, coins, coin_value, idx, num_iterates)
-                if number_left > 0:
-                    self.get_answer(number_left, deepcopy(coins))
-
-                # 잔여숫자 0일 경우 번호 추가
-                elif number_left == 0:
-                    self.answer += 1
+        # 코인별 반복문
+        for coin in coins:
+            for num in range(number + 1):
+                if num // coin > 0:
+                    idx = num - coin
+                    self.dp[num] += self.dp[idx]
 
 
+        self.answer = self.dp[-1]
+        return self.answer
+
+
+len_coin, number  = list(map(int, input().split(' ')))
+coins = []
+
+import sys
+for _ in range(len_coin):
+    coin = int(sys.stdin.readline())
+    coins.append(coin)
+
+coin = Coin(number, coins)
+print(coin.get_answer())
+# print(coin.dp)
 
 
 
-
-coins = deque([3, 6])
-coin = Coin()
-coin.get_answer(6, coins)
-print(coin.answer)
